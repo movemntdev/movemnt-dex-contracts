@@ -195,6 +195,7 @@ module movement_dex::router {
         }
     }
 
+    #[view]
     /// Get reserves of liquidity pool (`X` and `Y`).
     /// Returns current reserves (`X`, `Y`).
     public fun get_reserves_size<X, Y, Curve>(): (u64, u64) {
@@ -254,6 +255,7 @@ module movement_dex::router {
 
     // Math.
 
+    #[view]
     /// Calculate optimal amounts of `X`, `Y` coins to add as a new liquidity.
     /// * `x_desired` - provided value of coins `X`.
     /// * `y_desired` - provided value of coins `Y`.
@@ -302,6 +304,7 @@ module movement_dex::router {
         (res as u64)
     }
 
+    #[view]
     /// Convert `LP` coins to `X` and `Y` coins, useful to calculate amount the user recieve after removing liquidity.
     /// * `lp_to_burn_val` - amount of `LP` coins to burn.
     /// Returns both `X` and `Y` coins amounts.
