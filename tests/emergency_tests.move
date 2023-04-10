@@ -1,11 +1,11 @@
 #[test_only]
-module liquidswap::emergency_tests {
+module movement_dex::emergency_tests {
     use std::signer;
 
     use aptos_framework::account;
 
-    use liquidswap::emergency;
-    use liquidswap::global_config;
+    use movement_dex::emergency;
+    use movement_dex::global_config;
     use test_helpers::test_pool::{Self, create_liquidswap_admin};
 
     #[test(emergency_acc = @emergency_admin, coin_admin = @test_coin_admin)]
@@ -36,7 +36,7 @@ module liquidswap::emergency_tests {
         let liquidswap_admin = create_liquidswap_admin();
         let (emergency_acc, _) =
             account::create_resource_account(&liquidswap_admin, b"emergency_account_seed");
-        assert!(signer::address_of(&emergency_acc) == @liquidswap_emergency_account, 1);
+        assert!(signer::address_of(&emergency_acc) == @movement_emergency_account, 1);
     }
 
     #[test(emergency_acc = @0x13)]

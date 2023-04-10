@@ -1,10 +1,9 @@
 [package]
-name = "Liquidswap"
-version = "0.4.4"
-upgrade_policy = "immutable"
+name = "MovementDEX"
+version = "1.0.0"
 
 [addresses]
-liquidswap = "0x190d44266241744264b964a37b8f09863167a12d3e70cda39376cfb4e3561e12"
+movement_dex = "0x190d44266241744264b964a37b8f09863167a12d3e70cda39376cfb4e3561e12"
 
 # Admins
 dao_admin = "0x63e39817ec41fad2e8d0713cc906a5f792e4cd2cf704f8b5fab6b2961281fa11"
@@ -12,8 +11,8 @@ emergency_admin = "0x63e39817ec41fad2e8d0713cc906a5f792e4cd2cf704f8b5fab6b296128
 fee_admin = "0x63e39817ec41fad2e8d0713cc906a5f792e4cd2cf704f8b5fab6b2961281fa11"
 
 # Resource accounts: should be the same as @liquidswap_lp in lp_coin
-liquidswap_pool_account = "0x05a97986a9d031c4567e15b797be516910cfcb4156312482efc6a19c0a30c948"
-liquidswap_emergency_account = "0xa6d6e549b917e454464ff6c63f91386d98769ea512bc778bdaca00969f896764"
+movement_lp_account = "0x05a97986a9d031c4567e15b797be516910cfcb4156312482efc6a19c0a30c948"
+movement_emergency_account = "0xa6d6e549b917e454464ff6c63f91386d98769ea512bc778bdaca00969f896764"
 
 # Addresses for tests.
 test_coin_admin = "0x11"
@@ -22,11 +21,11 @@ test_helpers = "0x12"
 test_lp_owner = "0x12"
 test_pool_addr = "0x2540b6f8a87ac1cff2de9f5f742854b448cd4521e96f840eda05e63e4e944ed6"
 
-[dependencies.LiquidswapLP]
-local = "./liquidswap_lp"
+[dependencies.MovementDEXLP]
+local = "movement_dex_lp"
 
-[dependencies.LiquidswapInit]
-local = "./liquidswap_init"
+[dependencies.MovementDEXInit]
+local = "movement_dex_init"
 
 [dependencies.AptosFramework]
 git = "https://github.com/aptos-labs/aptos-core.git"

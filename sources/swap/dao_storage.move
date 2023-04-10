@@ -1,13 +1,13 @@
-module liquidswap::dao_storage {
+module movement_dex::dao_storage {
     use std::signer;
 
     use aptos_framework::account;
     use aptos_framework::coin::{Self, Coin};
     use aptos_std::event;
 
-    use liquidswap::global_config;
+    use movement_dex::global_config;
 
-    friend liquidswap::liquidity_pool;
+    friend movement_dex::liquidity_pool;
 
     // Error codes.
 

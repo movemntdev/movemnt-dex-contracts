@@ -1,5 +1,5 @@
 #[test_only]
-module liquidswap::liquidity_pool_tests {
+module movement_dex::liquidity_pool_tests {
     use std::option;
     use std::signer;
     use std::string::utf8;
@@ -7,15 +7,15 @@ module liquidswap::liquidity_pool_tests {
     use aptos_framework::account;
     use aptos_framework::coin;
     use aptos_framework::timestamp;
-    use liquidswap_lp::lp_coin::LP;
+    use movement_dex_lp::lp_coin::LP;
 
-    use liquidswap::coin_helper::supply;
-    use liquidswap::curves::{Uncorrelated, Stable};
-    use liquidswap::emergency;
-    use liquidswap::global_config;
-    use liquidswap::liquidity_pool;
-    use liquidswap::curves;
-    use liquidswap::coin_helper;
+    use movement_dex::coin_helper::supply;
+    use movement_dex::curves::{Uncorrelated, Stable};
+    use movement_dex::emergency;
+    use movement_dex::global_config;
+    use movement_dex::liquidity_pool;
+    use movement_dex::curves;
+    use movement_dex::coin_helper;
     use test_coin_admin::test_coins::{Self, USDT, BTC, USDC};
     use test_helpers::test_pool::{Self, initialize_liquidity_pool, create_liquidswap_admin};
 
@@ -38,12 +38,12 @@ module liquidswap::liquidity_pool_tests {
         let liquidswap_admin = create_liquidswap_admin();
         let (liquidswap_pool_acc, _) =
             account::create_resource_account(&liquidswap_admin, b"liquidswap_account_seed");
-        assert!(signer::address_of(&liquidswap_pool_acc) == @liquidswap_pool_account, 1);
+        assert!(signer::address_of(&liquidswap_pool_acc) == @movement_lp_account, 1);
     }
 
     #[test]
     fun test_liquidswap_lp_and_liquidswap_pool_account_are_the_same() {
-        assert!(@liquidswap_lp == @liquidswap_pool_account, 1);
+        assert!(@movement_dex_lp == @movement_lp_account, 1);
     }
 
     #[test]

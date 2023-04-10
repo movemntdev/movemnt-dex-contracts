@@ -1,11 +1,11 @@
 /// The current module contains pre-deplopyed scripts for LiquidSwap.
-module liquidswap::scripts {
+module movement_dex::scripts {
     use std::signer;
 
     use aptos_framework::coin;
 
-    use liquidswap::router;
-    use liquidswap_lp::lp_coin::LP;
+    use movement_dex::router;
+    use movement_dex_lp::lp_coin::LP;
 
     /// Register a new liquidity pool for `X`/`Y` pair.
     ///

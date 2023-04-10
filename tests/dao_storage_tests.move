@@ -1,18 +1,18 @@
 #[test_only]
-module liquidswap::dao_storage_tests {
+module movement_dex::dao_storage_tests {
     use std::signer;
 
     use aptos_framework::coin;
-    use liquidswap_lp::lp_coin::LP;
+    use movement_dex_lp::lp_coin::LP;
 
-    use liquidswap::curves::Uncorrelated;
-    use liquidswap::dao_storage;
-    use liquidswap::liquidity_pool;
-    use liquidswap::router;
+    use movement_dex::curves::Uncorrelated;
+    use movement_dex::dao_storage;
+    use movement_dex::liquidity_pool;
+    use movement_dex::router;
     use test_coin_admin::test_coins::{Self, BTC, USDT};
     use test_helpers::test_account::create_account;
     use test_helpers::test_pool;
-    use liquidswap::global_config;
+    use movement_dex::global_config;
 
     #[test]
     fun test_register() {
@@ -164,12 +164,12 @@ module liquidswap::dao_storage_tests {
         assert!(x_res == 100999, 2);
         assert!(y_res == 99040, 3);
 
-        let (dao_x, dao_y) = dao_storage::get_storage_size<BTC, USDT, Uncorrelated>(@liquidswap_pool_account);
+        let (dao_x, dao_y) = dao_storage::get_storage_size<BTC, USDT, Uncorrelated>(@movement_lp_account);
         assert!(dao_x == 1, 4);
         assert!(dao_y == 0, 5);
 
         let (x, y) =
-            dao_storage::withdraw<BTC, USDT, Uncorrelated>(&dao_admin_acc, @liquidswap_pool_account, 1, 0);
+            dao_storage::withdraw<BTC, USDT, Uncorrelated>(&dao_admin_acc, @movement_lp_account, 1, 0);
         assert!(coin::value(&x) == 1, 6);
         assert!(coin::value(&y) == 0, 7);
 

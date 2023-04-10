@@ -1,5 +1,5 @@
 /// Marker structures to use in LiquidityPool third generic.
-module liquidswap::curves {
+module movement_dex::curves {
     use aptos_std::type_info;
 
     const ERR_INVALID_CURVE: u64 = 10001;

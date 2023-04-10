@@ -1,14 +1,14 @@
 #[test_only]
-module liquidswap::router_tests {
+module movement_dex::router_tests {
     use std::signer;
 
     use aptos_framework::coin;
     use aptos_framework::timestamp;
-    use liquidswap_lp::lp_coin::LP;
+    use movement_dex_lp::lp_coin::LP;
 
-    use liquidswap::curves::{Uncorrelated, Stable};
-    use liquidswap::liquidity_pool;
-    use liquidswap::router;
+    use movement_dex::curves::{Uncorrelated, Stable};
+    use movement_dex::liquidity_pool;
+    use movement_dex::router;
     use test_coin_admin::test_coins::{Self, USDT, BTC, USDC};
     use test_helpers::test_pool;
 

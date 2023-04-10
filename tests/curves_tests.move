@@ -1,6 +1,6 @@
 #[test_only]
-module liquidswap::curves_tests {
-    use liquidswap::curves::{
+module movement_dex::curves_tests {
+    use movement_dex::curves::{
         Self,
         is_stable,
         Uncorrelated,

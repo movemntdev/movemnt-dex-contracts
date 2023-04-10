@@ -1,11 +1,11 @@
 /// The module allows for emergency stop Liquidswap operations.
-module liquidswap::emergency {
+module movement_dex::emergency {
     use std::signer;
-    use liquidswap::global_config;
+    use movement_dex::global_config;
     use aptos_framework::account::SignerCapability;
     use aptos_framework::account;
 
-    friend liquidswap::liquidity_pool;
+    friend movement_dex::liquidity_pool;
 
     // Error codes.
     /// When the wrong account attempted to create an emergency resource.
@@ -32,7 +32,7 @@ module liquidswap::emergency {
     }
 
     public(friend) fun initialize(liquidswap_admin: &signer) {
-        assert!(signer::address_of(liquidswap_admin) == @liquidswap, ERR_UNREACHABLE);
+        assert!(signer::address_of(liquidswap_admin) == @movement_dex, ERR_UNREACHABLE);
 
         let (_, signer_cap) =
             account::create_resource_account(liquidswap_admin, b"emergency_account_seed");
@@ -47,7 +47,7 @@ module liquidswap::emergency {
         assert!(signer::address_of(account) == global_config::get_emergency_admin(), ERR_NO_PERMISSIONS);
 
         let emergency_account_cap =
-            borrow_global<EmergencyAccountCapability>(@liquidswap);
+            borrow_global<EmergencyAccountCapability>(@movement_dex);
         let emergency_account = account::create_signer_with_capability(&emergency_account_cap.signer_cap);
         move_to(&emergency_account, IsEmergency {});
     }
@@ -60,12 +60,12 @@ module liquidswap::emergency {
         assert!(account_addr == global_config::get_emergency_admin(), ERR_NO_PERMISSIONS);
         assert!(is_emergency(), ERR_NOT_EMERGENCY);
 
-        let IsEmergency {} = move_from<IsEmergency>(@liquidswap_emergency_account);
+        let IsEmergency {} = move_from<IsEmergency>(@movement_emergency_account);
     }
 
     /// Get if it's paused or not.
     public fun is_emergency(): bool {
-        exists<IsEmergency>(@liquidswap_emergency_account)
+        exists<IsEmergency>(@movement_emergency_account)
     }
 
     /// Would abort if currently paused.
@@ -75,7 +75,7 @@ module liquidswap::emergency {
 
     /// Get if it's disabled or not.
     public fun is_disabled(): bool {
-        exists<IsDisabled>(@liquidswap_emergency_account)
+        exists<IsDisabled>(@movement_emergency_account)
     }
 
     /// Disable condition forever.
@@ -84,7 +84,7 @@ module liquidswap::emergency {
         assert!(signer::address_of(account) == global_config::get_emergency_admin(), ERR_NO_PERMISSIONS);
 
         let emergency_account_cap =
-            borrow_global<EmergencyAccountCapability>(@liquidswap);
+            borrow_global<EmergencyAccountCapability>(@movement_dex);
         let emergency_account = account::create_signer_with_capability(&emergency_account_cap.signer_cap);
         move_to(&emergency_account, IsDisabled {});
     }

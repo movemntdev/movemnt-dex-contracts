@@ -1,13 +1,13 @@
 /// Router v2 for Liquidity Pool, similar to Uniswap router.
-module liquidswap::router_v2 {
+module movement_dex::router {
     use aptos_framework::coin::{Coin, Self};
 
-    use liquidswap::coin_helper::{Self, supply};
-    use liquidswap::curves;
-    use liquidswap::math;
-    use liquidswap::stable_curve;
-    use liquidswap::liquidity_pool;
-    use liquidswap_lp::lp_coin::LP;
+    use movement_dex::coin_helper::{Self, supply};
+    use movement_dex::curves;
+    use movement_dex::math;
+    use movement_dex::stable_curve;
+    use movement_dex::liquidity_pool;
+    use movement_dex_lp::lp_coin::LP;
 
     // Errors codes.
 
@@ -319,6 +319,7 @@ module liquidswap::router_v2 {
         (x_to_return_val, y_to_return_val)
     }
 
+    #[view]
     /// Get amount out for `amount_in` of X coins (see generic).
     /// So if Coins::USDC is X and Coins::USDT is Y, it will get amount of USDT you will get after swap `amount_x` USDC.
     /// !Important!: This function can eat a lot of gas if you querying it for stable curve pool, so be aware.
@@ -337,6 +338,7 @@ module liquidswap::router_v2 {
         )
     }
 
+    #[view]
     /// Get amount in for `amount_out` of X coins (see generic).
     /// So if Coins::USDT is X and Coins::USDC is Y, you pass how much USDC you want to get and
     /// it returns amount of USDT you have to swap (include fees).
