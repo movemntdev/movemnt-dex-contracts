@@ -1,5 +1,5 @@
 /// Router v2 for Liquidity Pool, similar to Uniswap router.
-module movement_dex::router {
+module movement_dex::router_v2 {
     use aptos_framework::coin::{Coin, Self};
 
     use movement_dex::coin_helper::{Self, supply};
@@ -243,6 +243,7 @@ module movement_dex::router {
         }
     }
 
+    #[view]
     /// Check swap for pair `X` and `Y` exists.
     /// If pool exists returns true, otherwise false.
     public fun is_swap_exists<X, Y, Curve>(): bool {

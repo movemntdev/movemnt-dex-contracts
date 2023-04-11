@@ -53,6 +53,7 @@ module movement_dex::coin_helper {
         address_cmp
     }
 
+    #[view]
     /// Check that coins generics `X`, `Y` are sorted in correct ordering.
     /// X != Y && X.symbol < Y.symbol
     public fun is_sorted<X, Y>(): bool {
