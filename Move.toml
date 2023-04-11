@@ -3,7 +3,7 @@ name = "MovementDEX"
 version = "1.0.0"
 
 [addresses]
-movement_dex = "0x190d44266241744264b964a37b8f09863167a12d3e70cda39376cfb4e3561e12"
+movement_dex = "0xd0d068848da0d8b1eec5755c048142c8efecf8a2ac9e319d6f502358535f2590"
 
 # Admins
 dao_admin = "0x63e39817ec41fad2e8d0713cc906a5f792e4cd2cf704f8b5fab6b2961281fa11"
@@ -11,7 +11,7 @@ emergency_admin = "0x63e39817ec41fad2e8d0713cc906a5f792e4cd2cf704f8b5fab6b296128
 fee_admin = "0x63e39817ec41fad2e8d0713cc906a5f792e4cd2cf704f8b5fab6b2961281fa11"
 
 # Resource accounts: should be the same as @liquidswap_lp in lp_coin
-movement_lp_account = "0x05a97986a9d031c4567e15b797be516910cfcb4156312482efc6a19c0a30c948"
+movement_lp_account = "0x74b1a2737e3163142e0f6cdf92c6d56b990c574dfa69ce443ced20a119602cca"
 movement_emergency_account = "0xa6d6e549b917e454464ff6c63f91386d98769ea512bc778bdaca00969f896764"
 
 # Addresses for tests.

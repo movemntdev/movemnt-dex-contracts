@@ -37,7 +37,7 @@ module movement_dex::liquidity_pool_tests {
     fun test_liquidswap_pool_account_address() {
         let liquidswap_admin = create_liquidswap_admin();
         let (liquidswap_pool_acc, _) =
-            account::create_resource_account(&liquidswap_admin, b"liquidswap_account_seed");
+            account::create_resource_account(&liquidswap_admin, b"movement_dex_account_seed");
         assert!(signer::address_of(&liquidswap_pool_acc) == @movement_lp_account, 1);
     }
 
