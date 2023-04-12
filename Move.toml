@@ -3,21 +3,21 @@ name = "MovementDEX"
 version = "1.0.0"
 
 [addresses]
-movement_dex = "0xd0d068848da0d8b1eec5755c048142c8efecf8a2ac9e319d6f502358535f2590"
+movement_dex = "0x5d74b9dfc5e930db7fd9530675e06a0bb52800cb5bf7c038a6f886aa3c00381d"
 
 # Admins
-dao_admin = "0x63e39817ec41fad2e8d0713cc906a5f792e4cd2cf704f8b5fab6b2961281fa11"
-emergency_admin = "0x63e39817ec41fad2e8d0713cc906a5f792e4cd2cf704f8b5fab6b2961281fa11"
-fee_admin = "0x63e39817ec41fad2e8d0713cc906a5f792e4cd2cf704f8b5fab6b2961281fa11"
+dao_admin = "0x5d74b9dfc5e930db7fd9530675e06a0bb52800cb5bf7c038a6f886aa3c00381d"
+emergency_admin = "0x5d74b9dfc5e930db7fd9530675e06a0bb52800cb5bf7c038a6f886aa3c00381d"
+fee_admin = "0x5d74b9dfc5e930db7fd9530675e06a0bb52800cb5bf7c038a6f886aa3c00381d"
 
 # Resource accounts: should be the same as @liquidswap_lp in lp_coin
 movement_lp_account = "0x74b1a2737e3163142e0f6cdf92c6d56b990c574dfa69ce443ced20a119602cca"
-movement_emergency_account = "0xa6d6e549b917e454464ff6c63f91386d98769ea512bc778bdaca00969f896764"
+movement_emergency_account = "0xb51d66c2f1a8fb40983cf3ad8838b0e295b857bdf0acb70d0b534d2e717c42ad"
 
 # Addresses for tests.
+[dev-addresses]
 test_coin_admin = "0x11"
 test_helpers = "0x12"
-
 test_lp_owner = "0x12"
 test_pool_addr = "0x2540b6f8a87ac1cff2de9f5f742854b448cd4521e96f840eda05e63e4e944ed6"
 
@@ -33,9 +33,9 @@ rev = "mainnet"
 subdir = "aptos-move/framework/aptos-framework"
 
 [dependencies.UQ64x64]
-git = "https://github.com/pontem-network/UQ64x64.git"
-rev = "v0.3.8"
+git = "https://github.com/movemntdev/U64xU64"
+rev = "master"
 
 [dependencies.U256]
-git = "https://github.com/pontem-network/U256.git"
-rev = "v0.3.9"
+git = "https://github.com/movemntdev/U256.git"
+rev = "master"

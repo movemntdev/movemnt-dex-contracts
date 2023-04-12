@@ -3,7 +3,7 @@ name = 'MovementDEXInit'
 version = '1.0.0'
 
 [addresses]
-movement_dex = "0xd0d068848da0d8b1eec5755c048142c8efecf8a2ac9e319d6f502358535f2590"
+movement_dex = "0x5d74b9dfc5e930db7fd9530675e06a0bb52800cb5bf7c038a6f886aa3c00381d"
 
 [dependencies.AptosFramework]
 git = "https://github.com/aptos-labs/aptos-core.git"

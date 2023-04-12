@@ -1,0 +1,19 @@
+{
+  "name": "movement_dex",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "deploy": "node deploy.js"
+  },
+  "keywords": [],
+  "author": "shaokun",
+  "license": "ISC",
+  "dependencies": {
+    "@iarna/toml": "^2.2.5",
+    "aptos": "^1.8.2",
+    "axios": "^1.3.5",
+    "shelljs": "^0.8.5",
+    "toml": "^3.0.0"
+  }
+}

@@ -3,7 +3,7 @@ name = 'MovementDEXLP'
 version = '1.0.0'
 
 [addresses]
-movement_dex_lp = "0x74b1a2737e3163142e0f6cdf92c6d56b990c574dfa69ce443ced20a119602cca"
+movement_dex_lp = "0x5a33c876cbc9c16d0a8d030c21f279d8e34682cd8014200b7d93fedba0e7ffa3"
 
 [dev-dependencies.MoveStdlib]
 git = "https://github.com/aptos-labs/aptos-core.git"
