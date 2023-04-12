@@ -115,6 +115,9 @@ module movement_dex::scripts_v2 {
         );
 
         let account_addr = signer::address_of(account);
+        if(!coin::is_account_registered<Y>(account_addr)) {
+            coin::register<Y>(account);
+        };
         coin::deposit(account_addr, coin_y);
     }
 
