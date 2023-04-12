@@ -48,7 +48,7 @@ async function start() {
       .catch((e) => console.error(e));
 
   // initialize LP account
-  const payload = {
+  const initializeLpPayload = {
     function: "0x5d74b9dfc5e930db7fd9530675e06a0bb52800cb5bf7c038a6f886aa3c00381d::lp_account::initialize_lp_account",
     type_arguments: [],
     arguments: [
@@ -56,13 +56,13 @@ async function start() {
         lpCoinCode,
     ],
   };
-  const txnRequest = await client.generateTransaction(
-    account.address(),
-    payload
+  const initializeLpTxRequest = await client.generateTransaction(
+      account.address(),
+      initializeLpPayload
   );
-  const signedTxn = await client.signTransaction(account, txnRequest);
-  const transactionRes = await client.submitTransaction(signedTxn);
-  await client.waitForTransactionWithResult(transactionRes.hash)
+  const signedInitializeLpPayload = await client.signTransaction(account, initializeLpTxRequest);
+  const initializeLpTransactionRes = await client.submitTransaction(signedInitializeLpPayload);
+  await client.waitForTransactionWithResult(initializeLpTransactionRes.hash)
       .then((res) => console.log(res.vm_status))
       .catch((e) => console.error(e));
 
@@ -99,7 +99,23 @@ async function start() {
   );
   await client.waitForTransactionWithResult(dexPublishTx)
       .then((res) => console.log(res.vm_status))
-      .catch((e) => console.error(e));
+      .catch((e) => console.error(e.message));
+
+  // initialize DEX
+    const initializePayload = {
+        function: "0x5d74b9dfc5e930db7fd9530675e06a0bb52800cb5bf7c038a6f886aa3c00381d::liquidity_pool::initialize",
+        type_arguments: [],
+        arguments: []
+    }
+    const txnRequest = await client.generateTransaction(
+      account.address(),
+        initializePayload
+    );
+    const signedTxn = await client.signTransaction(account, txnRequest);
+    const transactionRes = await client.submitTransaction(signedTxn);
+    await client.waitForTransactionWithResult(transactionRes.hash)
+        .then((res) => console.log(res.vm_status))
+        .catch((e) => console.error(e));
 
   // initialize router v2
   shellJs.exec("aptos move compile --save-metadata --package-dir movement_dex_router");
@@ -121,6 +137,4 @@ async function start() {
   await client.waitForTransactionWithResult(routerV2PublishTx)
       .then((res) => console.log(res.vm_status))
       .catch((e) => console.error(e));
-
-
 }
