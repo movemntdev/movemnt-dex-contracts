@@ -101,26 +101,26 @@ async function start() {
       .then((res) => console.log(res.vm_status))
       .catch((e) => console.error(e));
 
-  // // initialize router v2
-  // shellJs.exec("aptos move compile --save-metadata --package-dir movement_dex_router");
-  // const routerMetadata = fs.readFileSync("movement_dex_router/build/MovementDEXRouter/package-metadata.bcs");
-  // const routerV2Code = fs.readFileSync("movement_dex_router/build/MovementDEXRouter/bytecode_modules/router_v2.mv");
-  // const scriptsV2Code = fs.readFileSync("movement_dex_router/build/MovementDEXRouter/bytecode_modules/scripts_v2.mv");
-  // const routerV2PublishTx = await client.publishPackage(
-  //     account,
-  //     new HexString(routerMetadata.toString("hex")).toUint8Array(),
-  //     [
-  //         new aptos.TxnBuilderTypes.Module(
-  //             new HexString(routerV2Code.toString("hex")).toUint8Array()
-  //         ),
-  //         new aptos.TxnBuilderTypes.Module(
-  //             new HexString(scriptsV2Code.toString("hex")).toUint8Array()
-  //         ),
-  //     ],
-  // );
-  // await client.waitForTransactionWithResult(routerV2PublishTx)
-  //     .then((res) => console.log(res.vm_status))
-  //     .catch((e) => console.error(e));
+  // initialize router v2
+  shellJs.exec("aptos move compile --save-metadata --package-dir movement_dex_router");
+  const routerMetadata = fs.readFileSync("movement_dex_router/build/MovementDEXRouter/package-metadata.bcs");
+  const routerV2Code = fs.readFileSync("movement_dex_router/build/MovementDEXRouter/bytecode_modules/router_v2.mv");
+  const scriptsV2Code = fs.readFileSync("movement_dex_router/build/MovementDEXRouter/bytecode_modules/scripts_v2.mv");
+  const routerV2PublishTx = await client.publishPackage(
+      account,
+      new HexString(routerMetadata.toString("hex")).toUint8Array(),
+      [
+          new aptos.TxnBuilderTypes.Module(
+              new HexString(routerV2Code.toString("hex")).toUint8Array()
+          ),
+          new aptos.TxnBuilderTypes.Module(
+              new HexString(scriptsV2Code.toString("hex")).toUint8Array()
+          ),
+      ],
+  );
+  await client.waitForTransactionWithResult(routerV2PublishTx)
+      .then((res) => console.log(res.vm_status))
+      .catch((e) => console.error(e));
 
 
 }

@@ -11,7 +11,7 @@ emergency_admin = "0x5d74b9dfc5e930db7fd9530675e06a0bb52800cb5bf7c038a6f886aa3c0
 fee_admin = "0x5d74b9dfc5e930db7fd9530675e06a0bb52800cb5bf7c038a6f886aa3c00381d"
 
 # Resource accounts: should be the same as @liquidswap_lp in lp_coin
-movement_lp_account = "0x74b1a2737e3163142e0f6cdf92c6d56b990c574dfa69ce443ced20a119602cca"
+movement_lp_account = "0x5a33c876cbc9c16d0a8d030c21f279d8e34682cd8014200b7d93fedba0e7ffa3"
 movement_emergency_account = "0xb51d66c2f1a8fb40983cf3ad8838b0e295b857bdf0acb70d0b534d2e717c42ad"
 
 # Addresses for tests.
